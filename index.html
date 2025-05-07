@@ -1,108 +1,237 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attic Insider</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background: #222;
-      padding: 0.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    .container {
-      display: flex;
-      padding: 1rem;
-      gap: 2rem;
-    }
-    .main {
-      flex: 3;
-    }
-    .sidebar {
-      flex: 1;
-      background: #eee;
-      padding: 1rem;
-    }
-    article {
-      background: white;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attic Insider</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        
+        /* Navigation Bar */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #222;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+        }
+
+        nav li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            min-width: 200px;
+        }
+
+        /* Featured Article Section */
+        .featured-article {
+            margin: 2rem 0;
+            background-color: #fff;
+            padding: 1.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-article h2 {
+            font-size: 24px;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .featured-content img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .featured-content h3 {
+            font-size: 20px;
+        }
+
+        .featured-content a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Trending News Section */
+        .trending-news {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .trending-news h2 {
+            font-size: 24px;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .trending-item {
+            background-color: #fff;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .trending-item h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .trending-item a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .trending-item p {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-links, .social-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links a, .social-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-links a {
+            margin: 0 5px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .featured-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .featured-content img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Attic Insider</h1>
-    <p>Daily Global News & Headlines</p>
-  </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">World</a>
-    <a href="#">Politics</a>
-    <a href="#">Technology</a>
-    <a href="#">Entertainment</a>
-    <a href="#">Sports</a>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">World</a>
+                <ul>
+                    <li><a href="#">Breaking News</a></li>
+                    <li><a href="#">Global Politics</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Technology</a>
+                <ul>
+                    <li><a href="#">New Gadgets</a></li>
+                    <li><a href="#">AI Innovations</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Entertainment</a></li>
+        </ul>
+    </nav>
 
-  <div class="container">
-    <div class="main">
-      <article>
-        <h2>Breaking: Major Event Happens Around the Globe</h2>
-        <p><em>May 7, 2025 | World News</em></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
-      </article>
-      <article>
-        <h2>Technology Update: New Innovation Launched</h2>
-        <p><em>May 7, 2025 | Tech</em></p>
-        <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
-      </article>
-    </div>
+    <!-- Featured Article Section -->
+    <section class="featured-article">
+        <h2>Featured Article</h2>
+        <div class="featured-content">
+            <img src="https://via.placeholder.com/200x150" alt="Featured news image" />
+            <div>
+                <h3><a href="#">Global Economy Shifts: What This Means for You</a></h3>
+                <p>Stay informed about the latest economic changes around the world...</p>
+            </div>
+        </div>
+    </section>
 
-    <aside class="sidebar">
-      <h3>Recent Posts</h3>
-      <ul>
-        <li><a href="#">Global Economy Outlook 2025</a></li>
-        <li><a href="#">New AI Tool Changing Everything</a></li>
-        <li><a href="#">Sports Recap: Who Won?</a></li>
-      </ul>
-    </aside>
-  </div>
+    <!-- Trending News Section -->
+    <section class="trending-news">
+        <h2>Trending News</h2>
+        <div class="trending-item">
+            <h3><a href="#">Global Leaders Meet to Discuss Climate Change</a></h3>
+            <p>This meeting could shape global policies and the future of climate action...</p>
+        </div>
+        <div class="trending-item">
+            <h3><a href="#">Tech Giant Releases New AI-Powered Smartwatch</a></h3>
+            <p>Find out the new features that make this smartwatch a game-changer...</p>
+        </div>
+        <div class="trending-item">
+            <h3><a href="#">Sports Teams Battle for Championship Title</a></h3>
+            <p>The final game of the season is expected to break all viewing records...</p>
+        </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Attic Insider. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2025 Attic Insider. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
